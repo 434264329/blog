@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源中心 - 我的博客</title>
+    <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resources.css">
+</head>
+<body>
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBackToMain()">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                返回
+            </button>
+            <div class="nav-logo">
+                <img src="picture/icon.jpg" alt="Logo">
+            </div>
+            
+            <!-- 搜索框 -->
+            <div class="resource-search-container">
+                <input type="text" id="resourceSearchInput" placeholder="搜索资源..." oninput="filterResources()">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                    <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+            
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <div class="toggle-ball">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 主要内容 -->
+    <main class="resources-main">
+        <div class="resources-container">
+            <div class="resources-header">
+                <h1 class="resources-title">资源中心</h1>
+                <p class="resources-subtitle">这里收集了我的各种资源和链接</p>
+            </div>
+            
+            <div id="resourcesContainer" class="resources-list">
+                <!-- 资源项目将通过JavaScript动态加载 -->
+            </div>
+            
+            <!-- 无搜索结果提示 -->
+            <div id="noResultsMessage" class="no-results" style="display: none;">
+                <p>没有找到匹配的资源</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/resources-data.js"></script>
+    <script src="js/resources.js"></script>
+</body>
+</html>

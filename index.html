@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎 - 我的博客</title>
+    <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 欢迎页面 -->
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <img src="picture/icon.jpg" alt="Logo" class="welcome-icon">
+            <h1 class="welcome-title">欢迎</h1>
+            <button class="enter-btn" onclick="enterSite()">进入网站</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/welcome.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 欢迎页面 -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <img src="picture/icon.jpg" alt="Logo" class="welcome-icon">
+            <h1 class="welcome-title">欢迎</h1>
+            <button class="enter-btn" onclick="enterSite()">进入网站</button>
+        </div>
+    </div>
+    
+    <!-- 主要内容 -->
+    <div class="main-content" id="mainContent" style="display: none;">
+        <!-- 导航栏 -->
+        <nav class="glass-nav" id="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="picture/icon.jpg" alt="Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" onclick="showMyPage()">我的</a></li>
+                    <li><a href="#" onclick="showResourcesPage()">资源</a></li>
+                </ul>
+                <div class="theme-toggle" onclick="toggleTheme()">
+                    <div class="toggle-ball">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- 搜索区域 -->
+        <div class="search-container">
+            <div class="search-box">
+                <select id="searchEngine" class="search-select">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="baidu">百度</option>
+                    <option value="360">360搜索</option>
+                    <option value="sogou">搜狗</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="输入搜索内容..." onkeypress="handleSearchKeyPress(event)">
+                <button class="search-btn" onclick="performSearch()">搜索</button>
+            </div>
+            <button class="academic-search-btn" id="academicBtn" onclick="performAcademicSearch()">学术搜索</button>
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <main class="content-area">
+            <h1>欢迎来到我的博客</h1>
+            <p>这里是主要内容区域</p>
+        </main>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/resources-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

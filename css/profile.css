@@ -1,0 +1,181 @@
+/* 个人资料页面样式 */
+.profile-main {
+    min-height: 100vh;
+    padding-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 0 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px var(--shadow);
+    animation: float 3s ease-in-out infinite;
+}
+
+.profile-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.profile-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.social-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.social-icon.bilibili {
+    background: linear-gradient(135deg, #00a1d6, #0084c7);
+    color: white;
+}
+
+.social-icon.douyin {
+    background: linear-gradient(135deg, #fe2c55, #ff0050);
+    color: white;
+}
+
+.social-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.social-info p {
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.social-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: var(--accent-color);
+    filter: brightness(1.1);
+}
+
+.social-btn:active {
+    transform: translateY(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .profile-title {
+        font-size: 2rem;
+    }
+    
+    .social-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .social-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .profile-title {
+        font-size: 1.5rem;
+    }
+    
+    .profile-subtitle {
+        font-size: 1rem;
+    }
+    
+    .social-card {
+        padding: 1rem;
+    }
+}
