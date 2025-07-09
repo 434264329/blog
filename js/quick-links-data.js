@@ -77,5 +77,26 @@ const quickLinksData = [
             gradient: 'linear-gradient(135deg, #ff0000, #cc0000)'
         }
     },
-    
+     {
+        id: 'shaxiang',
+        name: '微步云沙箱',
+        description: '在线检测软件和网页安全性',
+        url: 'https://s.threatbook.com/',
+        icon: {
+            type: 'text',
+            content: '沙', 
+            gradient: 'linear-gradient(135deg, #ff6b35, #f7931e)'
+        }
+    },
+     {
+        id: 'weather',
+        name: 'MSN天气',
+        description: '微软天气预报平台',
+        url: 'https://www.msn.cn/zh-cn/weather/forecast',
+        icon: {
+            type: 'text',
+            content: '天', 
+            gradient: 'linear-gradient(135deg,rgb(0, 89, 255),rgb(15, 160, 218))'
+        }
+    },
 ];

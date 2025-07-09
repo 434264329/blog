@@ -690,6 +690,8 @@ body {
 .quick-link-icon.github { background: linear-gradient(135deg, #333, #666); }
 .quick-link-icon.chatgpt { background: linear-gradient(135deg, #10a37f, #1a7f64); }
 .quick-link-icon.youtube { background: linear-gradient(135deg, #ff0000, #cc0000); }
+.quick-link-icon.shaxiang { background: linear-gradient(135deg, #ff6b35, #f7931e); }
+.quick-link-icon.weather { background: linear-gradient(135deg, rgb(0, 89, 255), rgb(15, 160, 218)); }
 .quick-link-icon.stackoverflow { background: linear-gradient(135deg, #f48024, #da670b); }
 
 .quick-link-info {
