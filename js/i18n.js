@@ -45,7 +45,7 @@ class I18n {
                 
                 // 软件页面
                 'software.title': '软件中心',
-                'software.subtitle': '这里收集了各种实用的软件工具',
+                'software.subtitle': '这里是由我和AI写的软件工具',
                 'software.search_placeholder': '搜索软件...',
                 'software.download': '下载',
                 'software.no_download': '暂无下载',
@@ -114,7 +114,7 @@ class I18n {
                 
                 // Software page
                 'software.title': 'Software Center',
-                'software.subtitle': 'Collection of useful software tools',
+                'software.subtitle': 'Software tools written by me and AI',
                 'software.search_placeholder': 'Search software...',
                 'software.download': 'Download',
                 'software.no_download': 'No Download',
@@ -183,7 +183,7 @@ class I18n {
                 
                 // ソフトウェアページ
                 'software.title': 'ソフトウェアセンター',
-                'software.subtitle': '便利なソフトウェアツールのコレクション',
+                'software.subtitle': '私とAIが書いたソフトウェアツール',
                 'software.search_placeholder': 'ソフトウェアを検索...',
                 'software.download': 'ダウンロード',
                 'software.no_download': 'ダウンロードなし',
