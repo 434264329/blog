@@ -768,3 +768,138 @@ body {
         text-align: left;
     }
 }
+
+/* 语言选择器样式 */
+.language-selector {
+    position: relative;
+    margin-right: 15px;
+}
+
+.language-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 8px 12px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    white-space: nowrap;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.language-flag {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.language-name {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.language-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.language-selector.show .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 8px;
+    min-width: 120px;
+    box-shadow: 0 8px 32px var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.language-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.language-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.language-option.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.language-option.active:hover {
+    background: var(--accent-color);
+    filter: brightness(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .language-selector {
+        margin-right: 10px;
+    }
+    
+    .language-btn {
+        padding: 6px 10px;
+        min-width: 70px;
+    }
+    
+    .language-name {
+        display: none;
+    }
+    
+    .language-menu {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-selector {
+        margin-right: 5px;
+    }
+    
+    .language-btn {
+        padding: 6px 8px;
+        min-width: 50px;
+    }
+}

@@ -105,6 +105,9 @@ function displayResources(resources) {
     
     noResultsMessage.style.display = 'none';
     
+    // 获取当前语言的访问按钮文本
+    const visitText = i18n ? i18n.t('resources.visit') : '访问';
+    
     container.innerHTML = resources.map(resource => `
         <div class="resource-card">
             <div class="resource-header">
@@ -118,7 +121,7 @@ function displayResources(resources) {
             </div>
             <p class="resource-description">${resource.description}</p>
             <button class="resource-btn" onclick="openResource('${resource.url}')">
-                访问资源
+                ${visitText}
             </button>
         </div>
     `).join('');
@@ -198,43 +201,14 @@ function goBackToMain() {
     window.location.href = 'main.html';
 }
 
-// 主题切换函数
-let isAnimating = false;
-
+// 主题切换
 function toggleTheme() {
-    if (isAnimating) return;
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    isAnimating = true;
-    const toggleBall = document.querySelector('.toggle-ball');
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
     
-    if (!toggleBall) {
-        isAnimating = false;
-        return;
-    }
-    
-    const currentTransform = toggleBall.style.transform || '';
-    const baseTransform = currentTransform.includes('translateX') ? currentTransform.split(' scale')[0] : '';
-    
-    toggleBall.style.transform = baseTransform + ' scale(0.8)';
-    
-    setTimeout(() => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        setTimeout(() => {
-            if (typeof updateParticlesColor === 'function') {
-                updateParticlesColor();
-            }
-        }, 100);
-        
-        const newBaseTransform = newTheme === 'dark' ? 'translateX(28px)' : '';
-        toggleBall.style.transform = newBaseTransform;
-        
-        setTimeout(() => {
-            isAnimating = false;
-        }, 200);
-    }, 150);
+    // 更新粒子颜色
+    setTimeout(updateParticlesColor, 100);
 }

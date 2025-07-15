@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title.main">主界面 - 我的博客</title>
+    <title data-i18n="title.software">软件中心 - 我的博客</title>
     <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resources.css">
 </head>
 <body>
     <!-- 粒子背景容器 -->
@@ -18,9 +19,10 @@
                 <img src="picture/icon.jpg" alt="Logo">
             </div>
             <ul class="nav-menu">
-                <li><a href="#" onclick="showMyPage()" data-i18n="nav.my">我的</a></li>
-                <li><a href="#" onclick="showResourcesPage()" data-i18n="nav.resources">资源</a></li>
-                <li><a href="software.html" data-i18n="nav.software">软件</a></li>
+                <li><a href="main.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="profile.html" data-i18n="nav.my">我的</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源</a></li>
+                <li><a href="software.html" class="active" data-i18n="nav.software">软件</a></li>
                 <li><a href="donate/donate.html" data-i18n="nav.donate">捐赠</a></li>
             </ul>
             <!-- 语言选择器将通过JavaScript动态添加 -->
@@ -38,34 +40,33 @@
         </div>
     </nav>
     
-    <!-- 搜索区域 -->
-    <div class="search-container">
-        <div class="search-box">
-            <select id="searchEngine" class="search-select">
-                <option value="google">Google</option>
-                <option value="bing">Bing</option>
-                <option value="baidu">百度</option>
-                <option value="360">360搜索</option>
-                <option value="sogou">搜狗</option>
-            </select>
-            <input type="text" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="输入搜索内容..." onkeypress="handleSearchKeyPress(event)">
-            <button class="search-btn" onclick="performSearch()" data-i18n="search.button">搜索</button>
+    <!-- 主要内容 -->
+    <main class="resources-main">
+        <div class="resources-container">
+            <div class="resources-header">
+                <h1 class="resources-title" data-i18n="software.title">软件中心</h1>
+                <p class="resources-subtitle" data-i18n="software.subtitle">这里收集了各种实用的软件工具</p>
+                
+                <!-- 搜索框 -->
+                <div class="resource-search-container">
+                    <input type="text" id="softwareSearchInput" data-i18n-placeholder="software.search_placeholder" placeholder="搜索软件..." oninput="filterSoftware()">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                        <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div id="softwareContainer" class="resources-list">
+                <!-- 软件项目将通过JavaScript动态加载 -->
+            </div>
+            
+            <!-- 无搜索结果提示 -->
+            <div id="noResultsMessage" class="no-results" style="display: none;">
+                <p data-i18n="software.no_results">没有找到匹配的软件</p>
+            </div>
         </div>
-        <button class="academic-search-btn" id="academicBtn" onclick="performAcademicSearch()" data-i18n="search.academic">学术搜索</button>
-    </div>
-    
-    <!-- 主要内容区域 -->
-    <main class="content-area">
-        <!-- 这里可以添加其他内容 -->
     </main>
-    
-    <!-- 常用网站链接区域 - 移到最下面 -->
-    <footer class="quick-links-container">
-        <h2 class="quick-links-title" data-i18n="quicklinks.title">常用网站</h2>
-        <div class="quick-links-grid">
-            <!-- 内容将通过JavaScript动态加载 -->
-        </div>
-    </footer>
     
     <!-- 返回顶部按钮 -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" data-i18n-title="common.back_to_top">
@@ -74,10 +75,11 @@
         </svg>
     </button>
     
+    <!-- 脚本引用 -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/particles-config.js"></script>
     <script src="js/i18n.js"></script>
-    <script src="js/quick-links-data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/software-data.js"></script>
+    <script src="js/software.js"></script>
 </body>
 </html>

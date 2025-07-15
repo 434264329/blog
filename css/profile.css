@@ -42,10 +42,23 @@
 }
 
 .social-links {
+    margin-top: 2rem;
+}
+
+.social-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.social-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .social-card {
@@ -139,15 +152,17 @@
         font-size: 2rem;
     }
     
-    .social-links {
+    .social-cards-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        max-width: 400px;
     }
     
     .social-card {
         padding: 1.5rem;
-        flex-direction: column;
-        text-align: center;
+        /* 保持水平布局，确保一致性 */
+        flex-direction: row;
+        text-align: left;
     }
     
     .social-icon {
@@ -175,7 +190,37 @@
         font-size: 1rem;
     }
     
+    .social-cards-container {
+        max-width: 350px;
+    }
+    
     .social-card {
         padding: 1rem;
+        /* 在小屏幕上也保持水平布局 */
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .social-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .social-info p {
+        font-size: 0.8rem;
+    }
+    
+    .social-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 }

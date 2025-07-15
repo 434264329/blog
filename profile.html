@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的主页 - 个人资料</title>
+    <title data-i18n="title.profile">我的主页 - 个人资料</title>
     <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
@@ -13,17 +13,19 @@
     <div id="particles-js"></div>
     
     <!-- 导航栏 -->
-    <nav class="glass-nav">
+    <nav class="glass-nav" id="navbar">
         <div class="nav-container">
-            <button class="back-btn" onclick="goBack()">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                返回
-            </button>
             <div class="nav-logo">
                 <img src="picture/icon.jpg" alt="Logo">
             </div>
+            <ul class="nav-menu">
+                <li><a href="main.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="profile.html" class="active" data-i18n="nav.my">我的</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源</a></li>
+                <li><a href="software.html" data-i18n="nav.software">软件</a></li>
+                <li><a href="donate/donate.html" data-i18n="nav.donate">捐赠</a></li>
+            </ul>
+            <!-- 语言选择器将通过JavaScript动态添加 -->
             <div class="theme-toggle" onclick="toggleTheme()">
                 <div class="toggle-ball">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,34 +45,38 @@
         <div class="profile-container">
             <div class="profile-header">
                 <img src="picture/icon.jpg" alt="头像" class="profile-avatar">
-                <h1 class="profile-title">我的主页</h1>
-                <p class="profile-subtitle">欢迎访问我的个人空间</p>
+                <h1 class="profile-title" data-i18n="profile.heading">我的主页</h1>
+                <p class="profile-subtitle" data-i18n="profile.subtitle">欢迎访问我的个人空间</p>
             </div>
             
             <div class="social-links">
-                <div class="social-card">
-                    <div class="social-icon bilibili">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM6.4 15.64a.96.96 0 0 0 .96-.96V9.6a.96.96 0 0 0-1.92 0v5.08c0 .53.43.96.96.96zm6.4 0a.96.96 0 0 0 .96-.96V9.6a.96.96 0 0 0-1.92 0v5.08c0 .53.43.96.96.96z"/>
-                        </svg>
-                    </div>
-                    <div class="social-info">
-                        <h3>哔哩哔哩</h3>
-                        <p>我的B站主页</p>
-                        <button class="social-btn" onclick="openBilibili(event)">访问B站</button>
-                    </div>
-                </div>
+                <h2 class="social-title" data-i18n="profile.social_title">社交媒体</h2>
                 
-                <div class="social-card">
-                    <div class="social-icon douyin">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                        </svg>
+                <div class="social-cards-container">
+                    <div class="social-card">
+                        <div class="social-icon bilibili">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM6.4 15.64a.96.96 0 0 0 .96-.96V9.6a.96.96 0 0 0-1.92 0v5.08c0 .53.43.96.96.96zm6.4 0a.96.96 0 0 0 .96-.96V9.6a.96.96 0 0 0-1.92 0v5.08c0 .53.43.96.96.96z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h3 data-i18n="profile.bilibili">哔哩哔哩</h3>
+                            <p data-i18n="profile.bilibili_desc">我的B站主页</p>
+                            <button class="social-btn" onclick="openBilibili(event)" data-i18n="profile.visit_bilibili">访问B站</button>
+                        </div>
                     </div>
-                    <div class="social-info">
-                        <h3>抖音</h3>
-                        <p>我的抖音主页</p>
-                        <button class="social-btn" onclick="openDouyin(event)">访问抖音</button>
+                    
+                    <div class="social-card">
+                        <div class="social-icon douyin">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                            </svg>
+                        </div>
+                        <div class="social-info">
+                            <h3 data-i18n="profile.douyin">抖音</h3>
+                            <p data-i18n="profile.douyin_desc">我的抖音主页</p>
+                            <button class="social-btn" onclick="openDouyin(event)" data-i18n="profile.visit_douyin">访问抖音</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,7 +85,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/particles-config.js"></script>
-    <!-- 移除这行：<script src="js/main.js"></script> -->
+    <script src="js/i18n.js"></script>
     <script src="js/profile.js"></script>
 </body>
 </html>

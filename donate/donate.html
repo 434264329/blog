@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="donate.title">捐赠 - 我的博客</title>
+    <link rel="icon" href="../picture/icon.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/donate.css">
+</head>
+<body>
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="glass-nav" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../picture/icon.jpg" alt="Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../main.html" data-i18n="nav.home">首页</a></li>
+                <li><a href="../profile.html" data-i18n="nav.my">我的</a></li>
+                <li><a href="../resources.html" data-i18n="nav.resources">资源</a></li>
+                <li><a href="../software.html" data-i18n="nav.software">软件</a></li>
+                <li><a href="donate.html" class="active" data-i18n="nav.donate">捐赠</a></li>
+            </ul>
+            
+            <!-- 语言选择器 -->
+            <div class="language-selector">
+                <button class="language-btn" onclick="toggleLanguageMenu()">
+                    <span class="current-language">
+                        <span class="flag">🇨🇳</span>
+                        <span class="lang-name">中文</span>
+                    </span>
+                    <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="language-menu">
+                    <div class="language-option" onclick="changeLanguage('zh')">
+                        <span class="flag">🇨🇳</span>
+                        <span>中文</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('en')">
+                        <span class="flag">🇺🇸</span>
+                        <span>English</span>
+                    </div>
+                    <div class="language-option" onclick="changeLanguage('ja')">
+                        <span class="flag">🇯🇵</span>
+                        <span>日本語</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <div class="toggle-ball">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区域 -->
+    <main class="main-container">
+        <div class="donate-container">
+            <div class="donate-intro">
+                <p data-i18n="donate.intro">如果您觉得我的内容对您有帮助，欢迎通过以下方式支持我的创作：</p>
+            </div>
+
+            <div class="donate-methods">
+                <div class="donate-card" onclick="goToWechat()">
+                    <div class="donate-icon wechat">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18 0 .659-.52 1.188-1.162 1.188-.642 0-1.162-.529-1.162-1.188 0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18 0 .659-.52 1.188-1.162 1.188-.642 0-1.162-.529-1.162-1.188 0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.134 0 .24-.111.24-.248 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1 .178-.55c1.529-1.126 2.498-2.964 2.498-5.032 0-3.607-3.326-6.505-7.058-6.512zm-2.635 2.044c.462 0 .837.383.837.857 0 .474-.375.857-.837.857s-.837-.383-.837-.857c0-.474.375-.857.837-.857zm5.27 0c.462 0 .837.383.837.857 0 .474-.375.857-.837.857s-.837-.383-.837-.857c0-.474.375-.857.837-.857z"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="donate.wechat">微信捐赠</h3>
+                    <p data-i18n="donate.wechat_desc">使用微信扫码支付</p>
+                </div>
+
+                <div class="donate-card" onclick="goToAlipay()">
+                    <div class="donate-icon alipay">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm4.43 7.8c-.46-.2-.94-.3-1.44-.3-.5 0-.98.1-1.44.3-.46.2-.86.48-1.18.82-.32.34-.57.74-.74 1.18-.17.44-.26.9-.26 1.38 0 .48.09.94.26 1.38.17.44.42.84.74 1.18.32.34.72.62 1.18.82.46.2.94.3 1.44.3.5 0 .98-.1 1.44-.3.46-.2.86-.48 1.18-.82.32-.34.57-.74.74-1.18.17-.44.26-.9.26-1.38 0-.48-.09-.94-.26-1.38-.17-.44-.42-.84-.74-1.18-.32-.34-.72-.62-1.18-.82zm-4.43 4.32c-.24 0-.46-.05-.66-.14-.2-.09-.37-.22-.51-.38-.14-.16-.25-.35-.32-.56-.07-.21-.11-.43-.11-.66 0-.23.04-.45.11-.66.07-.21.18-.4.32-.56.14-.16.31-.29.51-.38.2-.09.42-.14.66-.14.24 0 .46.05.66.14.2.09.37.22.51.38.14.16.25.35.32.56.07.21.11.43.11.66 0 .23-.04.45-.11.66-.07.21-.18.4-.32.56-.14.16-.31.29-.51.38-.2.09-.42.14-.66.14z"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="donate.alipay">支付宝捐赠</h3>
+                    <p data-i18n="donate.alipay_desc">使用支付宝扫码支付</p>
+                </div>
+            </div>
+
+            <div class="donate-note">
+                <p data-i18n="donate.note">可选择上述捐赠方式，感谢你的每一笔捐赠</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/particles-config.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="donate.js"></script>
+</body>
+</html>
