@@ -36,5 +36,63 @@ const softwareData = [
         ],
         icon: "picture/read.ico",
         category: "问卷"
+    },
+    {
+        id: "pict_AI",
+        title: "图像识别AI",
+        description: "由AI写的图像识别程序，提取码aitx，使用前需要安装python和requirements中所需的模块",
+        version: "1.0",
+        size: "含有多个程序",
+        downloads: [
+            {
+                name: "123网盘下载",
+                url: "https://www.123865.com/s/4vGjVv-9CrTd?",
+                type: "exe"
+            },
+        ],
+        icon: "picture/AI.png",
+        category: "AI"
+    },
+    {
+        id: "Super_pict_AI",
+        title: "视频超分AI",
+        description: "蓝奏云提取码AIAI,huang1111网盘提取码h111AI,123云盘提取码CizZ,需要安装pytorch和colorama,matplotlib",
+
+        version: "1.0",
+        size: "<1MB",
+        downloads: [
+            {
+                name: "蓝奏云下载(Python)",
+                url: "https://wwtq.lanzouo.com/iFgtl32vsf7c",
+                type: "pyc,py,pth,md"
+            },
+            {
+                name: "123网盘下载",
+                url: "https://www.123865.com/s/4vGjVv-5ZrTd?pwd=CizZ#",
+                type: "pyc,py,pth,md"
+
+            },
+            {
+                name: "123网盘下载(备用链接)",
+                url: "https://www.123684.com/s/4vGjVv-5ZrTd?pwd=CizZ#",
+                type: "pyc,py,pth,md"
+
+            },
+            {
+                name: "huang1111网盘下载",
+                url: "https://pan.huang1111.cn/s/K9QkdiY",
+                type: "pyc,py,pth,md"
+
+            },
+            {
+                name: "github主页",
+                url: "https://github.com/434264329/Video_pro-AI",
+                type: "pyc,py,pth,md"
+            },
+
+        ],
+        icon: "picture/AI.png",
+        category: "AI"
     }
+    
 ];
