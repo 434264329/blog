@@ -93,6 +93,22 @@ const softwareData = [
         ],
         icon: "picture/AI.png",
         category: "AI"
-    }
+    },
+    {
+        id: "群聊",
+        title: "解小米bl交流群",
+        description: "密码:405i",
+        version: "1.0",
+        size: "无",
+        downloads: [
+            {
+                name: "蓝奏云",
+                url: "https://wwtq.lanzouo.com/b002upl27e",
+                type: "图片格式"
+            },
+        ],
+        icon: "",
+        category: "群聊"
+    },
     
 ];
