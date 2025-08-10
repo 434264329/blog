@@ -23,7 +23,8 @@ const resourcesData = {
       "name": "一起看APP",
       "description": "密码:9aib,看视频app",
       "url": "https://wwtq.lanzouo.com/isu4A335l0oh",
-      "icon": ""
+      "icon": "picture/yqk.png"
+
     }
   ]
 };
