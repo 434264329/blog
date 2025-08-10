@@ -16,6 +16,14 @@ const resourcesData = {
       "description": "提取码isof",
       "url": "https://www.123865.com/s/4vGjVv-QCrTd?",
       "icon": "picture/iso.webp"
+    },
+      {
+      "id": 3,
+      "title": "一起看APP",
+      "name": "一起看APP",
+      "description": "密码:9aib,看视频app",
+      "url": "https://wwtq.lanzouo.com/isu4A335l0oh",
+      "icon": ""
     }
   ]
 };
