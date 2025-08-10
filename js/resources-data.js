@@ -25,7 +25,16 @@ const resourcesData = {
       "url": "https://wwtq.lanzouo.com/isu4A335l0oh",
       "icon": "picture/yqk.png"
 
-    }
+    },
+    {
+      "id": 4,
+      "title": "Lkpatcher",
+      "name": "Lkpatcher",
+      "description": "该工具能够解包lk文件",
+      "url": "https://github.com/R0rt1z2/lkpatcher",
+      "icon": ""
+    },
+
   ]
 };
 
