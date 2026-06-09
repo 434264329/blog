@@ -2,10 +2,10 @@
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 设置初始主题
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    // 设置初始主题（默认深色）
+    const currentTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
     // 初始化粒子系统
     initParticles();
 });

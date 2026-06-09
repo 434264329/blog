@@ -3,27 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title.main">主界面 - 我的博客</title>
+    <title>主界面 - 我的博客</title>
     <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav-styles.css">
+    <link rel="stylesheet" href="css/visual-effects.css">
+    <style>
+        /* 搜索区域样式 */
+        .search-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            padding: 0 20px;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 5px 5px 5px 15px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            gap: 4px;
+        }
+
+        .search-select {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            padding: 8px 0;
+            min-width: 55px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .search-select option {
+            background: var(--primary-bg);
+            color: var(--text-color);
+        }
+
+        .search-divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        #searchInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 8px;
+            color: var(--text-color);
+            font-size: 15px;
+            outline: none;
+            min-width: 0;
+        }
+
+        #searchInput::placeholder {
+            color: var(--text-color);
+            opacity: 0.5;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 16px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .academic-search-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            border-radius: 20px;
+            padding: 10px 14px;
+            color: white;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .academic-search-btn:hover {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+        }
+
+        .academic-search-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* 常用网站收纳按钮 */
+        .quick-links-toggle {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .quick-links-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .quick-links-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-color);
+            transition: transform 0.3s ease;
+        }
+
+        .quick-links-toggle.active svg {
+            transform: rotate(180deg);
+        }
+
+        /* 常用网站弹出面板 */
+        .quick-links-panel {
+            position: fixed;
+            bottom: 145px;
+            right: 30px;
+            width: 300px;
+            max-height: 400px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 10px 40px var(--shadow);
+            z-index: 49;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px) scale(0.95);
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .quick-links-panel.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .quick-links-panel-title {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .quick-links-panel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .quick-link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-link-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .quick-link-item-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .quick-link-item-name {
+            font-size: 0.8rem;
+            color: var(--text-color);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 滚动条样式 */
+        .quick-links-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .quick-links-panel::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        @media (max-width: 480px) {
+            .quick-links-panel {
+                right: 15px;
+                width: 260px;
+                bottom: 135px;
+            }
+
+            .quick-links-toggle {
+                right: 15px;
+                bottom: 80px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 粒子背景容器 -->
     <div id="particles-js"></div>
-    
+
     <!-- 导航栏 -->
     <nav class="glass-nav" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="picture/icon.jpg" alt="Logo">
+                <a href="main.html"><img src="picture/icon.jpg" alt="Logo"></a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" onclick="showMyPage()" data-i18n="nav.my">我的</a></li>
-                <li><a href="#" onclick="showResourcesPage()" data-i18n="nav.resources">资源</a></li>
-                <li><a href="software.html" data-i18n="nav.software">软件</a></li>
-                <li><a href="donate/donate.html" data-i18n="nav.donate">捐赠</a></li>
+                <li><a href="main.html" class="active">首页</a></li>
+                <li><a href="profile.html">我的</a></li>
+                <li><a href="resources.html">资源</a></li>
+                <li><a href="software.html">软件</a></li>
+                <li><a href="donate/donate.html">捐赠</a></li>
             </ul>
-            <!-- 语言选择器将通过JavaScript动态添加 -->
             <div class="theme-toggle" onclick="toggleTheme()">
                 <div class="toggle-ball">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,47 +284,112 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- 搜索区域 -->
-    <div class="search-container">
-        <div class="search-box">
-            <select id="searchEngine" class="search-select">
-                <option value="google">Google</option>
-                <option value="bing">Bing</option>
-                <option value="baidu">百度</option>
-                <option value="360">360搜索</option>
-                <option value="sogou">搜狗</option>
-            </select>
-            <input type="text" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="输入搜索内容..." onkeypress="handleSearchKeyPress(event)">
-            <button class="search-btn" onclick="performSearch()" data-i18n="search.button">搜索</button>
+    <div class="search-wrapper">
+        <div class="search-container">
+            <div class="search-box">
+                <select id="searchEngine" class="search-select" onchange="updateAcademicButton()">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="baidu">百度</option>
+                    <option value="360">360</option>
+                    <option value="sogou">搜狗</option>
+                </select>
+                <div class="search-divider"></div>
+                <input type="text" id="searchInput" placeholder="输入搜索内容..." onkeypress="handleSearchKeyPress(event)">
+                <button class="search-btn" onclick="performSearch()">搜索</button>
+                <div class="search-divider"></div>
+                <button class="academic-search-btn" id="academicBtn" onclick="performAcademicSearch()">学术</button>
+            </div>
         </div>
-        <button class="academic-search-btn" id="academicBtn" onclick="performAcademicSearch()" data-i18n="search.academic">学术搜索</button>
     </div>
-    
-    <!-- 主要内容区域 -->
-    <main class="content-area">
-        <!-- 这里可以添加其他内容 -->
-    </main>
-    
-    <!-- 常用网站链接区域 - 移到最下面 -->
-    <footer class="quick-links-container">
-        <h2 class="quick-links-title" data-i18n="quicklinks.title">常用网站</h2>
-        <div class="quick-links-grid">
+
+    <!-- 常用网站收纳按钮 -->
+    <div class="quick-links-toggle" onclick="toggleQuickLinks()" title="常用网站">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- 常用网站弹出面板 -->
+    <div class="quick-links-panel" id="quickLinksPanel">
+        <div class="quick-links-panel-title">常用网站</div>
+        <div class="quick-links-panel-grid" id="quickLinksGrid">
             <!-- 内容将通过JavaScript动态加载 -->
         </div>
-    </footer>
-    
+    </div>
+
     <!-- 返回顶部按钮 -->
-    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" data-i18n-title="common.back_to_top">
+    <button class="back-to-top hidden" id="backToTop" onclick="scrollToTop()">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/particles-config.js"></script>
-    <script src="js/i18n.js"></script>
+    <script src="js/background-config.js"></script>
     <script src="js/quick-links-data.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/visual-effects.js"></script>
+    <script>
+        // 常用网站展开/收纳
+        let quickLinksOpen = false;
+
+        function toggleQuickLinks() {
+            quickLinksOpen = !quickLinksOpen;
+            const panel = document.getElementById('quickLinksPanel');
+            const toggle = document.querySelector('.quick-links-toggle');
+
+            if (quickLinksOpen) {
+                panel.classList.add('show');
+                toggle.classList.add('active');
+            } else {
+                panel.classList.remove('show');
+                toggle.classList.remove('active');
+            }
+        }
+
+        // 点击外部关闭
+        document.addEventListener('click', function(e) {
+            const panel = document.getElementById('quickLinksPanel');
+            const toggle = document.querySelector('.quick-links-toggle');
+
+            if (quickLinksOpen && !panel.contains(e.target) && !toggle.contains(e.target)) {
+                quickLinksOpen = false;
+                panel.classList.remove('show');
+                toggle.classList.remove('active');
+            }
+        });
+
+        // 加载常用网站到面板
+        function loadQuickLinksToPanel() {
+            const grid = document.getElementById('quickLinksGrid');
+            if (!grid || typeof quickLinksData === 'undefined') return;
+
+            grid.innerHTML = '';
+
+            quickLinksData.forEach(link => {
+                const item = document.createElement('div');
+                item.className = 'quick-link-item';
+                item.onclick = () => window.open(link.url, '_blank');
+
+                item.innerHTML = `
+                    <div class="quick-link-item-icon" style="background: ${link.icon.gradient}">
+                        ${link.icon.content}
+                    </div>
+                    <div class="quick-link-item-name">${link.name}</div>
+                `;
+
+                grid.appendChild(item);
+            });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuickLinksToPanel();
+        });
+    </script>
 </body>
 </html>

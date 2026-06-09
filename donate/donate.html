@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="donate.title">捐赠 - 我的博客</title>
+    <title data-i18n="title.donate">捐赠 - 我的博客</title>
     <link rel="icon" href="../picture/icon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/donate.css">
+    <link rel="stylesheet" href="../css/nav-styles.css">
+    <link rel="stylesheet" href="../css/visual-effects.css">
 </head>
 <body>
     <!-- 粒子背景容器 -->
     <div id="particles-js"></div>
-    
+
     <!-- 导航栏 -->
     <nav class="glass-nav" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="../picture/icon.jpg" alt="Logo">
+                <a href="../main.html"><img src="../picture/icon.jpg" alt="Logo"></a>
             </div>
             <ul class="nav-menu">
                 <li><a href="../main.html" data-i18n="nav.home">首页</a></li>
@@ -25,34 +27,7 @@
                 <li><a href="../software.html" data-i18n="nav.software">软件</a></li>
                 <li><a href="donate.html" class="active" data-i18n="nav.donate">捐赠</a></li>
             </ul>
-            
-            <!-- 语言选择器 -->
-            <div class="language-selector">
-                <button class="language-btn" onclick="toggleLanguageMenu()">
-                    <span class="current-language">
-                        <span class="flag">🇨🇳</span>
-                        <span class="lang-name">中文</span>
-                    </span>
-                    <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <div class="language-menu">
-                    <div class="language-option" onclick="changeLanguage('zh')">
-                        <span class="flag">🇨🇳</span>
-                        <span>中文</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('en')">
-                        <span class="flag">🇺🇸</span>
-                        <span>English</span>
-                    </div>
-                    <div class="language-option" onclick="changeLanguage('ja')">
-                        <span class="flag">🇯🇵</span>
-                        <span>日本語</span>
-                    </div>
-                </div>
-            </div>
-            
+            <!-- 语言选择器将通过JavaScript动态添加 -->
             <div class="theme-toggle" onclick="toggleTheme()">
                 <div class="toggle-ball">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,10 +43,11 @@
     </nav>
 
     <!-- 主要内容区域 -->
-    <main class="main-container">
+    <main class="resources-main" style="padding-top: 120px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
         <div class="donate-container">
-            <div class="donate-intro">
-                <p data-i18n="donate.intro">如果您觉得我的内容对您有帮助，欢迎通过以下方式支持我的创作：</p>
+            <div class="resources-header" style="margin-bottom: 3rem;">
+                <h1 class="resources-title" data-i18n="nav.donate">捐赠</h1>
+                <p class="resources-subtitle" data-i18n="donate.intro">如果您觉得我的内容对您有帮助，欢迎通过以下方式支持我的创作：</p>
             </div>
 
             <div class="donate-methods">
@@ -95,10 +71,10 @@
                     <p data-i18n="donate.alipay_desc">使用支付宝扫码支付</p>
                 </div>
             </div>
+        </div>
 
-            <div class="donate-note">
-                <p data-i18n="donate.note">可选择上述捐赠方式，感谢你的每一笔捐赠</p>
-            </div>
+        <div class="donate-note" style="margin-top: auto; margin-bottom: 2rem;">
+            <p data-i18n="donate.note">可选择上述捐赠方式，感谢你的每一笔捐赠</p>
         </div>
     </main>
 
@@ -111,7 +87,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../js/particles-config.js"></script>
+    <script src="../js/background-config.js"></script>
     <script src="../js/i18n.js"></script>
     <script src="donate.js"></script>
+    <script src="../js/visual-effects.js"></script>
 </body>
 </html>

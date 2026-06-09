@@ -7,16 +7,18 @@
     <link rel="icon" href="picture/icon.jpg" type="image/jpeg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/resources.css">
+    <link rel="stylesheet" href="css/nav-styles.css">
+    <link rel="stylesheet" href="css/visual-effects.css">
 </head>
 <body>
     <!-- 粒子背景容器 -->
     <div id="particles-js"></div>
-    
+
     <!-- 导航栏 -->
     <nav class="glass-nav" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="picture/icon.jpg" alt="Logo">
+                <a href="main.html"><img src="picture/icon.jpg" alt="Logo"></a>
             </div>
             <ul class="nav-menu">
                 <li><a href="main.html" data-i18n="nav.home">首页</a></li>
@@ -39,7 +41,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- 主要内容 -->
     <main class="resources-main">
         <div class="resources-container">
@@ -47,7 +49,7 @@
                 <h1 class="resources-title" data-i18n="resources.heading">资源中心</h1>
                 <p class="resources-subtitle" data-i18n="resources.subtitle">这里收集了我的各种资源和链接</p>
             </div>
-            
+
             <!-- 搜索框 -->
             <div class="resource-search-container">
                 <input type="text" id="resourceSearchInput" data-i18n-placeholder="resources.search_placeholder" placeholder="搜索资源..." oninput="filterResources()">
@@ -56,29 +58,31 @@
                     <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
                 </svg>
             </div>
-            
+
             <div id="resourcesContainer" class="resources-list">
                 <!-- 资源项目将通过JavaScript动态加载 -->
             </div>
-            
+
             <!-- 无搜索结果提示 -->
             <div id="noResultsMessage" class="no-results" style="display: none;">
                 <p data-i18n="resources.no_results">没有找到匹配的资源</p>
             </div>
         </div>
     </main>
-    
+
     <!-- 返回顶部按钮 -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" data-i18n-title="common.back_to_top">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/particles-config.js"></script>
+    <script src="js/background-config.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/resources-data.js"></script>
     <script src="js/resources.js"></script>
+    <script src="js/visual-effects.js"></script>
 </body>
 </html>

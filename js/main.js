@@ -1,30 +1,29 @@
 // 主题管理
-let currentTheme = localStorage.getItem('theme') || 'light';
+let currentTheme = localStorage.getItem('theme') || 'dark';
 let isAnimating = false;
 
-// 初始化
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
     // 设置初始主题
     document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
     // 初始化粒子系统
     initParticles();
-    
+
     // 设置滚动监听
     setupScrollListener();
-    
+
     // 平滑滚动
     setupSmoothScroll();
-    
+
     // 加载快速链接
     loadQuickLinks();
-    
+
     // 搜索引擎选择监听
     const searchEngineSelect = document.getElementById('searchEngine');
     if (searchEngineSelect) {
         searchEngineSelect.addEventListener('change', updateAcademicButton);
-        updateAcademicButton(); // 初始化状态
+        updateAcademicButton();
     }
 });
 
@@ -135,16 +134,6 @@ function setupSmoothScroll() {
             }
         });
     });
-}
-
-// 显示我的页面
-function showMyPage() {
-    window.open('profile.html', '_blank');
-}
-
-// 显示资源页面
-function showResourcesPage() {
-    window.open('resources.html', '_blank');
 }
 
 // 搜索功能
