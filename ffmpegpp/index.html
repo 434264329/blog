@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFmpeg++ — 节点式多媒体处理引擎</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="image/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <img src="image/logo.png" alt="FFmpeg++" class="brand-logo">
+                <span class="brand-text">FFmpeg<span class="brand-plus">++</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link" data-magnetic>特性</a>
+                <a href="#showcase" class="nav-link" data-magnetic>展示</a>
+                <a href="#compare" class="nav-link" data-magnetic>对比</a>
+                <a href="#download" class="nav-link" data-magnetic>下载</a>
+            </div>
+            <a href="#download" class="nav-cta" data-magnetic>
+                <span>立即下载</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge" data-reveal>
+                <span class="badge-dot"></span>
+                <span>v4.5.0 — 三平台支持</span>
+            </div>
+            <h1 class="hero-title" data-reveal data-reveal-delay="100">
+                <span class="title-line">用<span class="gradient-text">节点</span>连线</span>
+                <span class="title-line">驾驭多媒体处理</span>
+            </h1>
+            <p class="hero-subtitle" data-reveal data-reveal-delay="200">
+                像搭积木一样构建视频、音频、图片处理流水线。<br>
+                拖拽连线，所见即所得，FFmpeg 的全部力量触手可及。
+            </p>
+            <div class="hero-actions" data-reveal data-reveal-delay="300">
+                <a href="#download" class="btn btn-primary" data-magnetic>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 3v10m0 0l-3-3m3 3l3-3M4 15h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>免费下载</span>
+                </a>
+                <a href="#showcase" class="btn btn-ghost" data-magnetic>
+                    <span>查看演示</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Floating Stats -->
+        <div class="hero-stats" data-reveal data-reveal-delay="400">
+            <div class="stat-pill">
+                <span class="stat-number" data-count="18">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">处理节点</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-number" data-count="3">0</span>
+                <span class="stat-label">操作系统</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-number" data-count="0">0</span>
+                <span class="stat-label">费用</span>
+            </div>
+        </div>
+
+        <!-- Hero Image with Parallax -->
+        <div class="hero-visual" data-reveal data-reveal-delay="500">
+            <div class="hero-image-container">
+                <div class="hero-image-glow"></div>
+                <img src="image/节点编辑器界面.png" alt="FFmpeg++ 节点编辑器界面" class="hero-image">
+                <div class="hero-image-overlay"></div>
+                <!-- Floating elements -->
+                <div class="float-element float-1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3" fill="#EC4899"/>
+                        <circle cx="12" cy="12" r="8" stroke="#EC4899" stroke-width="1" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="float-element float-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="6" y="6" width="12" height="12" rx="3" stroke="#8B5CF6" stroke-width="1.5"/>
+                        <circle cx="12" cy="12" r="2" fill="#8B5CF6"/>
+                    </svg>
+                </div>
+                <div class="float-element float-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 4l6 8-6 8-6-8 6-8z" stroke="#06B6D4" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" data-reveal data-reveal-delay="600">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>向下滚动探索</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">核心能力</span>
+                <h2 class="section-title">不止于转码，是整条<span class="gradient-text">流水线</span></h2>
+                <p class="section-desc">18 种处理节点自由组合，从简单格式转换到复杂批处理，一切尽在掌握</p>
+            </div>
+
+            <div class="features-showcase">
+                <!-- Main Feature Card -->
+                <div class="feature-main" data-reveal>
+                    <div class="feature-main-content">
+                        <div class="feature-icon-large">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="16" cy="16" r="6" stroke="url(#feat-grad)" stroke-width="2"/>
+                                <circle cx="32" cy="16" r="6" stroke="url(#feat-grad)" stroke-width="2"/>
+                                <circle cx="16" cy="32" r="6" stroke="url(#feat-grad)" stroke-width="2"/>
+                                <circle cx="32" cy="32" r="6" stroke="url(#feat-grad)" stroke-width="2"/>
+                                <path d="M22 16h4M16 22v4M32 22v4M22 32h4" stroke="url(#feat-grad)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="feat-grad" x1="0" y1="0" x2="48" y2="48">
+                                        <stop stop-color="#EC4899"/>
+                                        <stop offset="1" stop-color="#8B5CF6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3>节点式编辑器</h3>
+                        <p>6000x6000 虚拟画布，自由拖拽连线。左键框选，右键菜单，滚轮缩放，像专业 DAW 一样流畅。支持逻辑块循环，实现批处理自动化。</p>
+                    </div>
+                    <div class="feature-main-visual">
+                        <img src="image/节点编辑器界面.png" alt="节点编辑器" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Feature Grid -->
+                <div class="feature-grid">
+                    <div class="feature-card" data-reveal data-reveal-delay="100" data-tilt>
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-card-content">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <rect x="4" y="6" width="24" height="16" rx="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 12l6 4-6 4v-8z" fill="currentColor"/>
+                                    <path d="M8 26h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>视频处理</h3>
+                            <p>转码、剪辑、调速、抽帧、字幕烧录，覆盖日常所有视频操作。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card" data-reveal data-reveal-delay="200" data-tilt>
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-card-content">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <rect x="6" y="4" width="20" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="16" cy="14" r="5" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M10 24h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>图像处理</h3>
+                            <p>裁剪、旋转、缩放、亮度、降噪、锐化、通道提取，9 大图像节点。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card" data-reveal data-reveal-delay="300" data-tilt>
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-card-content">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M4 16c3-6 6-12 8-4s4 12 8 0 4-16 6-4 4 10 2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>音频处理</h3>
+                            <p>音频转码、提取音轨，支持所有主流音频格式。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card" data-reveal data-reveal-delay="400" data-tilt>
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-card-content">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M16 4v4M16 24v4M4 16h4M24 16h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="16" cy="16" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+                                    <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>循环逻辑块</h3>
+                            <p>用逻辑框选包裹节点，循环执行 N 次或随机选择操作。</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-card" data-reveal data-reveal-delay="500" data-tilt>
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-card-content">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <path d="M4 8h10v10H4zM18 8h10v10H18zM10 20h12v8H10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>跨平台</h3>
+                            <p>Windows x64、Linux x64、Linux ARM64 原生支持。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="showcase" id="showcase">
+        <div class="section-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">界面一览</span>
+                <h2 class="section-title">Material 风格，<span class="gradient-text">清爽克制</span></h2>
+                <p class="section-desc">遵循 Google Material Design 设计语言，色彩克制、层次分明、操作直觉</p>
+            </div>
+
+            <div class="showcase-container" data-reveal>
+                <div class="showcase-tabs">
+                    <button class="tab-btn active" data-tab="main">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M7 8h6M7 11h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>主界面</span>
+                    </button>
+                    <button class="tab-btn" data-tab="editor">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="14" cy="6" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="6" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="14" cy="14" r="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M8 6h4M6 8v4M14 8v4M8 14h4" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                        </svg>
+                        <span>节点编辑器</span>
+                    </button>
+                    <button class="tab-btn" data-tab="process">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M10 7v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>处理中</span>
+                    </button>
+                    <button class="tab-btn" data-tab="log">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 4h12v2H4zM4 9h12v2H4zM4 14h8v2H4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>日志</span>
+                    </button>
+                    <button class="tab-btn" data-tab="settings">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M10 4v2M10 14v2M4 10h2M14 10h2M5.76 5.76l1.41 1.41M12.83 12.83l1.41 1.41M5.76 14.24l1.41-1.41M12.83 7.17l1.41-1.41" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>设置</span>
+                    </button>
+                </div>
+
+                <div class="showcase-display">
+                    <div class="showcase-chrome">
+                        <div class="chrome-bar">
+                            <div class="chrome-dot active"></div>
+                        </div>
+                        <div class="chrome-title">FFmpeg++ v4.5.0</div>
+                        <div class="chrome-bar">
+                            <div class="chrome-dot"></div>
+                        </div>
+                    </div>
+                    <div class="showcase-viewport">
+                        <img src="image/软件主界面.png" alt="主界面" class="showcase-img active" data-tab="main">
+                        <img src="image/节点编辑器界面.png" alt="节点编辑器" class="showcase-img" data-tab="editor">
+                        <img src="image/处理界面(界面有一个正在处理的视频).png" alt="处理中" class="showcase-img" data-tab="process">
+                        <img src="image/日志界面.png" alt="日志" class="showcase-img" data-tab="log">
+                        <img src="image/设置界面(中文).png" alt="设置" class="showcase-img" data-tab="settings">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="compare" id="compare">
+        <div class="section-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">格式转换</span>
+                <h2 class="section-title">PNG 转 JPG，<span class="gradient-text">体积骤降</span></h2>
+                <p class="section-desc">拖动滑块查看格式转换前后的对比 — 同一张图片，画质几乎无损，文件体积大幅缩小</p>
+            </div>
+
+            <div class="compare-container" data-reveal>
+                <div class="compare-frame">
+                    <div class="compare-viewport" id="compareSlider">
+                        <div class="compare-side compare-before">
+                            <img src="image/处理案例(处理前图片)<标记1>.png" alt="处理前">
+                            <div class="compare-label">
+                                <span>PNG · 1.54 MB</span>
+                            </div>
+                        </div>
+                        <div class="compare-side compare-after">
+                            <img src="image/处理案例(处理后图片)<标记1>.jpg" alt="处理后">
+                            <div class="compare-label">
+                                <span>JPG · 0.87 MB</span>
+                            </div>
+                        </div>
+                        <div class="compare-handle" id="compareHandle">
+                            <div class="handle-track"></div>
+                            <div class="handle-grip">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 12H4m0 0l2-2m-2 2l2 2M16 12h4m0 0l-2-2m2 2l-2 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="pipeline" id="pipeline">
+        <div class="section-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">工作流程</span>
+                <h2 class="section-title">三步完成<span class="gradient-text">专业级</span>处理</h2>
+            </div>
+
+            <div class="pipeline-flow" data-reveal>
+                <div class="pipeline-step">
+                    <div class="step-indicator">
+                        <div class="step-number">01</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-card" data-tilt>
+                        <div class="step-card-glow"></div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="8" y="6" width="24" height="28" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14 14h12M14 19h8M14 24h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>导入文件</h3>
+                        <p>拖入视频、图片或音频文件，自动识别格式和元数据</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-indicator">
+                        <div class="step-number">02</div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-card" data-tilt>
+                        <div class="step-card-glow"></div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="28" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="28" r="4" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="28" cy="28" r="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 12h8M12 16v8M28 16v8M16 24h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>连线编排</h3>
+                        <p>在画布上添加处理节点，用连线构建处理管线，实时预览参数</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-step">
+                    <div class="step-indicator">
+                        <div class="step-number">03</div>
+                    </div>
+                    <div class="step-card" data-tilt>
+                        <div class="step-card-glow"></div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 14l10 6-10 6V14z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>一键执行</h3>
+                        <p>点击运行，自动调度 FFmpeg 执行全部操作，进度实时可见</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="section-container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">开始使用</span>
+                <h2 class="section-title">免费下载，<span class="gradient-text">即刻体验</span></h2>
+                <p class="section-desc">支持 Windows、Linux x64 和 Linux ARM64，完全免费开源</p>
+            </div>
+
+            <div class="download-grid" data-reveal>
+                <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
+                    <div class="download-card-glow"></div>
+                    <div class="download-card-content">
+                        <div class="download-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="10" y="6" width="28" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                                <path d="M18 22h12l-6 8-6-8z" fill="currentColor" opacity="0.6"/>
+                                <path d="M18 34h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Windows</h3>
+                        <p class="download-arch">x86_64</p>
+                        <p class="download-format">Inno Setup 安装程序</p>
+                        <div class="download-btn">
+                            <span>下载 .exe</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
+                    <div class="download-card-glow"></div>
+                    <div class="download-card-content">
+                        <div class="download-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="16" r="4" fill="currentColor"/>
+                                <path d="M15 30a9 9 0 0118 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Linux</h3>
+                        <p class="download-arch">x86_64</p>
+                        <p class="download-format">.deb 安装包</p>
+                        <div class="download-btn">
+                            <span>下载 .deb</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
+                    <div class="download-card-glow"></div>
+                    <div class="download-card-content">
+                        <div class="download-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="16" r="4" fill="currentColor"/>
+                                <path d="M15 30a9 9 0 0118 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <text x="24" y="42" font-size="10" fill="currentColor" text-anchor="middle" font-family="Inter" font-weight="600">ARM</text>
+                            </svg>
+                        </div>
+                        <h3>Linux ARM</h3>
+                        <p class="download-arch">aarch64</p>
+                        <p class="download-format">.deb 安装包</p>
+                        <div class="download-btn">
+                            <span>下载 .deb</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="download-note" data-reveal>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 3a7 7 0 100 14 7 7 0 000-14zm0 3v4m0 3h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>需要系统已安装 FFmpeg。首次运行时可通过内置安装器一键安装。</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="image/logo.png" alt="FFmpeg++" class="footer-logo">
+                <div>
+                    <span class="brand-text">FFmpeg<span class="brand-plus">++</span></span>
+                    <p>节点式多媒体处理引擎</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/pity-fox/FFmpeg_plus_plus" target="_blank" rel="noopener" data-magnetic>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>FFmpeg++ &copy; 2026. 基于 FFmpeg 构建。</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 设置初始主题
     document.documentElement.setAttribute('data-theme', currentTheme);
 
-    // 初始化粒子系统
-    initParticles();
-
     // 设置滚动监听
     setupScrollListener();
 
@@ -231,7 +228,6 @@ function openQuickLink(url) {
     window.open(url, '_blank');
 }
 
-// 动态加载快速链接
 // 动态加载快速链接
 function loadQuickLinks() {
     const container = document.querySelector('.quick-links-grid');

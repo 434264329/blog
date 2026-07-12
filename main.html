@@ -255,9 +255,6 @@
     </style>
 </head>
 <body>
-    <!-- 粒子背景容器 -->
-    <div id="particles-js"></div>
-
     <!-- 导航栏 -->
     <nav class="glass-nav" id="navbar">
         <div class="nav-container">
@@ -265,11 +262,11 @@
                 <a href="main.html"><img src="picture/icon.jpg" alt="Logo"></a>
             </div>
             <ul class="nav-menu">
-                <li><a href="main.html" class="active">首页</a></li>
-                <li><a href="profile.html">我的</a></li>
-                <li><a href="resources.html">资源</a></li>
-                <li><a href="software.html">软件</a></li>
-                <li><a href="donate/donate.html">捐赠</a></li>
+                <li><a href="main.html" class="active" data-i18n="nav.home">首页</a></li>
+                <li><a href="profile.html" data-i18n="nav.my">我的</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">资源</a></li>
+                <li><a href="software.html" data-i18n="nav.software">软件</a></li>
+                <li><a href="donate/donate.html" data-i18n="nav.donate">捐赠</a></li>
             </ul>
             <div class="theme-toggle" onclick="toggleTheme()">
                 <div class="toggle-ball">
@@ -327,9 +324,8 @@
         </svg>
     </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="js/particles-config.js"></script>
     <script src="js/background-config.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/quick-links-data.js"></script>
     <script src="js/main.js"></script>
     <script src="js/visual-effects.js"></script>

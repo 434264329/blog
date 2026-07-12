@@ -7,24 +7,28 @@
 
 /* CSS变量定义 */
 :root, [data-theme="dark"] {
-    --primary-bg: #2a2a2a;
-    --secondary-bg: rgba(42, 42, 42, 0.95);
+    --primary-bg: #1a1a2e;
+    --secondary-bg: rgba(26, 26, 46, 0.95);
     --text-color: #e0e0e0;
+    --text-color-rgb: 224, 224, 224;
     --accent-color: #d4af37;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --shadow: rgba(0, 0, 0, 0.3);
+    --accent-color-rgb: 212, 175, 55;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --shadow: rgba(0, 0, 0, 0.4);
     --particle-color: rgba(255, 255, 255, 0.5);
 }
 
 [data-theme="light"] {
-    --primary-bg: #e8e8e8;
-    --secondary-bg: rgba(232, 232, 232, 0.95);
+    --primary-bg: #f0f0f5;
+    --secondary-bg: rgba(240, 240, 245, 0.95);
     --text-color: #333;
+    --text-color-rgb: 51, 51, 51;
     --accent-color: #d4af37;
-    --glass-bg: rgba(255, 255, 255, 0.3);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --shadow: rgba(0, 0, 0, 0.15);
+    --accent-color-rgb: 212, 175, 55;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --shadow: rgba(0, 0, 0, 0.1);
     --particle-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -225,6 +229,15 @@ h1, h2, h3, .resources-title, .profile-title, .blog-header h1 {
 }
 
 .nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a.active {
+    color: var(--accent-color);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.nav-menu a.active::after {
     width: 80%;
 }
 
@@ -562,7 +575,8 @@ h1, h2, h3, .resources-title, .profile-title, .blog-header h1 {
 }
 
 #searchInput::placeholder {
-    color: rgba(var(--text-color-rgb), 0.6);
+    color: var(--text-color);
+    opacity: 0.5;
 }
 
 .search-btn {

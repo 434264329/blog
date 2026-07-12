@@ -2,7 +2,7 @@
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 设置初始主题（默认深色）
+    // 设置初始主题
     const currentTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', currentTheme);
 

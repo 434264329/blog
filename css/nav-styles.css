@@ -222,8 +222,9 @@
     top: 100%;
     right: 0;
     margin-top: 8px;
-    background: var(--glass-bg);
+    background: var(--secondary-bg);
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 8px;
@@ -233,7 +234,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .language-menu.show {

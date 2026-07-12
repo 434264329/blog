@@ -59,7 +59,8 @@
 }
 
 #resourceSearchInput::placeholder, #softwareSearchInput::placeholder {
-    color: rgba(var(--text-color-rgb), 0.6);
+    color: var(--text-color);
+    opacity: 0.5;
 }
 
 .search-icon {
@@ -176,7 +177,7 @@
 }
 
 .resource-item .meta-item {
-    background: rgba(var(--accent-color-rgb), 0.1);
+    background: rgba(var(--accent-color-rgb), 0.15);
     color: var(--accent-color);
     padding: 0.2rem 0.5rem;
     border-radius: 12px;
@@ -188,6 +189,7 @@
 .resource-item .meta-item.category {
     background: rgba(var(--text-color-rgb), 0.1);
     color: var(--text-color);
+    opacity: 0.8;
 }
 
 .resource-item .resource-description {
