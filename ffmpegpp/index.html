@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FFmpeg++ — 节点式多媒体处理引擎</title>
+    <script>
+        (function(){var t=localStorage.getItem('ffmpegpp-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="image/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,17 +34,32 @@
                 <span class="brand-text">FFmpeg<span class="brand-plus">++</span></span>
             </div>
             <div class="nav-links">
+                <a href="../main.html" class="nav-link" data-magnetic>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:2px">
+                        <path d="M10 2L4 8l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>返回博客</a>
                 <a href="#features" class="nav-link" data-magnetic>特性</a>
                 <a href="#showcase" class="nav-link" data-magnetic>展示</a>
                 <a href="#compare" class="nav-link" data-magnetic>对比</a>
                 <a href="#download" class="nav-link" data-magnetic>下载</a>
             </div>
-            <a href="#download" class="nav-cta" data-magnetic>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                    <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </button>
+                <a href="#download" class="nav-cta" data-magnetic>
                 <span>立即下载</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
+            </div>
         </div>
     </nav>
 
@@ -50,7 +68,7 @@
         <div class="hero-content">
             <div class="hero-badge" data-reveal>
                 <span class="badge-dot"></span>
-                <span>v4.5.0 — 三平台支持</span>
+                <span>v4.13.33 — 三平台支持</span>
             </div>
             <h1 class="hero-title" data-reveal data-reveal-delay="100">
                 <span class="title-line">用<span class="gradient-text">节点</span>连线</span>
@@ -79,7 +97,7 @@
         <!-- Floating Stats -->
         <div class="hero-stats" data-reveal data-reveal-delay="400">
             <div class="stat-pill">
-                <span class="stat-number" data-count="18">0</span><span class="stat-suffix">+</span>
+                <span class="stat-number" data-count="25">0</span><span class="stat-suffix">+</span>
                 <span class="stat-label">处理节点</span>
             </div>
             <div class="stat-pill">
@@ -134,7 +152,7 @@
             <div class="section-header" data-reveal>
                 <span class="section-tag">核心能力</span>
                 <h2 class="section-title">不止于转码，是整条<span class="gradient-text">流水线</span></h2>
-                <p class="section-desc">18 种处理节点自由组合，从简单格式转换到复杂批处理，一切尽在掌握</p>
+                <p class="section-desc">25+ 处理节点自由组合，从简单格式转换到复杂批处理，一切尽在掌握</p>
             </div>
 
             <div class="features-showcase">
@@ -205,7 +223,7 @@
                                 </svg>
                             </div>
                             <h3>音频处理</h3>
-                            <p>音频转码、提取音轨，支持所有主流音频格式。</p>
+                            <p>音频转码、变速、音量调整、动态压缩、元信息编辑、提取音轨（带预览播放）。</p>
                         </div>
                     </div>
 
@@ -233,7 +251,7 @@
                                 </svg>
                             </div>
                             <h3>跨平台</h3>
-                            <p>Windows x64、Linux x64、Linux ARM64 原生支持。</p>
+                            <p>Windows x64、Linux x64/ARM64、macOS Universal 原生支持。</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +314,7 @@
                         <div class="chrome-bar">
                             <div class="chrome-dot active"></div>
                         </div>
-                        <div class="chrome-title">FFmpeg++ v4.5.0</div>
+                        <div class="chrome-title">FFmpeg++ v4.13.33</div>
                         <div class="chrome-bar">
                             <div class="chrome-dot"></div>
                         </div>
@@ -425,73 +443,57 @@
             <div class="section-header" data-reveal>
                 <span class="section-tag">开始使用</span>
                 <h2 class="section-title">免费下载，<span class="gradient-text">即刻体验</span></h2>
-                <p class="section-desc">支持 Windows、Linux x64 和 Linux ARM64，完全免费开源</p>
+                <p class="section-desc">支持 Windows、Linux x64、Linux ARM64 和 macOS，完全免费开源</p>
             </div>
 
             <div class="download-grid" data-reveal>
+                <!-- Windows -->
                 <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
                     <div class="download-card-glow"></div>
                     <div class="download-card-content">
                         <div class="download-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <rect x="10" y="6" width="28" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
-                                <path d="M18 22h12l-6 8-6-8z" fill="currentColor" opacity="0.6"/>
-                                <path d="M18 34h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                            <img src="../icons/windows.png" alt="Windows" width="48" height="48">
                         </div>
                         <h3>Windows</h3>
                         <p class="download-arch">x86_64</p>
                         <p class="download-format">Inno Setup 安装程序</p>
                         <div class="download-btn">
                             <span>下载 .exe</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                     </div>
                 </a>
 
+                <!-- Linux -->
                 <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
                     <div class="download-card-glow"></div>
                     <div class="download-card-content">
                         <div class="download-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="24" cy="16" r="4" fill="currentColor"/>
-                                <path d="M15 30a9 9 0 0118 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                            <img src="../icons/linux.png" alt="Linux" width="48" height="48">
                         </div>
                         <h3>Linux</h3>
-                        <p class="download-arch">x86_64</p>
+                        <p class="download-arch">x86_64 / aarch64</p>
                         <p class="download-format">.deb 安装包</p>
                         <div class="download-btn">
                             <span>下载 .deb</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                     </div>
                 </a>
 
+                <!-- macOS -->
                 <a href="https://github.com/pity-fox/FFmpeg_plus_plus/releases" target="_blank" rel="noopener" class="download-card" data-tilt data-magnetic>
                     <div class="download-card-glow"></div>
                     <div class="download-card-content">
                         <div class="download-icon">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="24" cy="16" r="4" fill="currentColor"/>
-                                <path d="M15 30a9 9 0 0118 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <text x="24" y="42" font-size="10" fill="currentColor" text-anchor="middle" font-family="Inter" font-weight="600">ARM</text>
-                            </svg>
+                            <img src="../icons/apple.png" alt="macOS" width="48" height="48">
                         </div>
-                        <h3>Linux ARM</h3>
-                        <p class="download-arch">aarch64</p>
-                        <p class="download-format">.deb 安装包</p>
+                        <h3>macOS</h3>
+                        <p class="download-arch">Universal (x64 + ARM64)</p>
+                        <p class="download-format">DMG 磁盘映像</p>
                         <div class="download-btn">
-                            <span>下载 .deb</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <span>下载 .dmg</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 8h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                     </div>
                 </a>

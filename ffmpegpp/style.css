@@ -4,7 +4,7 @@
 
 /* --- Design Tokens --- */
 :root {
-    /* Colors */
+    /* Colors (dark default) */
     --bg: #0a0a0f;
     --bg-elevated: #121218;
     --bg-card: #18181f;
@@ -23,6 +23,15 @@
     --accent-glow: rgba(78, 205, 196, 0.1);
     --gradient: linear-gradient(135deg, #7c6df0, #5b8def);
     --gradient-text: linear-gradient(135deg, #7c6df0 0%, #5b8def 50%, #4ecdc4 100%);
+    --cursor-blend: difference;
+    --nav-scrolled-bg: rgba(0, 0, 0, 0.8);
+    --grid-line: rgba(255, 255, 255, 0.015);
+    --orb-opacity: 0.06;
+    --image-overlay: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
+    --compare-label-bg: rgba(0, 0, 0, 0.6);
+    --handle-color: white;
+    --handle-shadow: rgba(0, 0, 0, 0.2);
+    --footer-text: #6b7280;
 
     /* Typography */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -59,6 +68,36 @@
     --blur-xl: 80px;
 }
 
+[data-theme="light"] {
+    --bg: #f5f5fa;
+    --bg-elevated: #eeeef4;
+    --bg-card: #ffffff;
+    --surface: rgba(0, 0, 0, 0.03);
+    --surface-hover: rgba(0, 0, 0, 0.06);
+    --border: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(0, 0, 0, 0.15);
+    --text: #1a1a2e;
+    --text-secondary: #555566;
+    --text-tertiary: #888899;
+    --primary: #6c5ce7;
+    --primary-glow: rgba(108, 92, 231, 0.12);
+    --secondary: #4a7adf;
+    --secondary-glow: rgba(74, 122, 223, 0.1);
+    --accent: #3dbdb4;
+    --accent-glow: rgba(61, 189, 180, 0.08);
+    --gradient: linear-gradient(135deg, #6c5ce7, #4a7adf);
+    --gradient-text: linear-gradient(135deg, #6c5ce7 0%, #4a7adf 50%, #3dbdb4 100%);
+    --cursor-blend: normal;
+    --nav-scrolled-bg: rgba(255, 255, 255, 0.85);
+    --grid-line: rgba(0, 0, 0, 0.03);
+    --orb-opacity: 0.04;
+    --image-overlay: linear-gradient(to bottom, transparent 60%, rgba(255, 255, 255, 0.3));
+    --compare-label-bg: rgba(255, 255, 255, 0.8);
+    --handle-color: #333;
+    --handle-shadow: rgba(0, 0, 0, 0.1);
+    --footer-text: #888899;
+}
+
 /* --- Reset --- */
 *, *::before, *::after {
     margin: 0;
@@ -70,6 +109,8 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     -webkit-text-size-adjust: 100%;
+    background: var(--bg);
+    transition: background 0.3s ease;
 }
 
 body {
@@ -80,6 +121,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -109,7 +151,7 @@ button {
     border-radius: 50%;
     pointer-events: none;
     z-index: 10000;
-    mix-blend-mode: difference;
+    mix-blend-mode: var(--cursor-blend);
     transform: translate(-50%, -50%);
     transition: width var(--duration-fast) var(--ease-out),
                 height var(--duration-fast) var(--ease-out);
@@ -157,7 +199,7 @@ button {
     position: absolute;
     border-radius: 50%;
     filter: blur(var(--blur-xl));
-    opacity: 0.06;
+    opacity: var(--orb-opacity);
 }
 
 .orb-1 {
@@ -209,8 +251,8 @@ button {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
@@ -233,7 +275,7 @@ button {
 }
 
 .nav.scrolled {
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--nav-scrolled-bg);
     backdrop-filter: blur(var(--blur-lg)) saturate(1.8);
     -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(1.8);
     border-bottom: 1px solid var(--border);
@@ -321,6 +363,63 @@ button {
 .nav-cta:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 8px var(--primary-glow);
+}
+
+/* --- Theme Toggle --- */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+    color: var(--text);
+}
+
+[data-theme="dark"] .theme-icon-sun { display: block; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+[data-theme="light"] .theme-icon-sun { display: none; }
+[data-theme="light"] .theme-icon-moon { display: block; }
+
+/* --- Light theme cursor fix --- */
+[data-theme="light"] .cursor {
+    background: var(--text);
+}
+
+[data-theme="light"] .cursor-follower {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .compare-label {
+    background: var(--compare-label-bg);
+    color: #333;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .handle-grip {
+    background: var(--handle-color);
+    color: white;
+}
+
+[data-theme="light"] .handle-track {
+    background: #333;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 
 /* --- Hero Section --- */
@@ -523,7 +622,7 @@ button {
 .hero-image-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
+    background: var(--image-overlay);
     pointer-events: none;
 }
 
@@ -1146,7 +1245,12 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--space-lg);
-    color: var(--primary);
+}
+
+.download-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
 .download-card h3 {
@@ -1300,7 +1404,11 @@ section {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
+    .nav-links .nav-link:not(:first-child) {
+        display: none;
+    }
+
+    .nav-cta {
         display: none;
     }
 

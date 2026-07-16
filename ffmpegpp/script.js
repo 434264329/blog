@@ -5,6 +5,17 @@
 (function () {
     'use strict';
 
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('ffmpegpp-theme', next);
+        });
+    }
+
     // --- Custom Cursor ---
     const cursor = document.getElementById('cursor');
     const cursorFollower = document.getElementById('cursorFollower');
